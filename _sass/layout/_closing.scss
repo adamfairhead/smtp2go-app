@@ -1,0 +1,27 @@
+// Page Closing
+
+.closing {
+  @extend .page-top;
+
+  li {
+    display: inline-block;
+    padding: .5em;
+  }
+
+  @include media(max-width $medium-screen) {
+    text-align: center;
+
+    .copyright,
+    .feedback,
+    .chat,
+    .twitter {
+      display: none;
+    }
+  }
+
+  @include media($medium-screen) {
+    .copyright {
+      float: left;
+    }
+  }
+}

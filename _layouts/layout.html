@@ -1,0 +1,139 @@
+---
+layout: compress
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-title" content="SMTP2GO" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="/favicon-highres.png" rel="icon" sizes="192x192">
+    <meta name="theme-color" content="#7eb3f5">
+    <title>SMTP2GO</title>
+
+    <style>
+      body {
+        background: #475b78;
+        margin: 0;
+      }
+
+      .page-top {
+        background: #222a35;
+        padding: .5em 1em;
+        min-height: 24px;
+      }
+
+      .page-top ul,
+      .open-nav,
+      .page-navigation,
+      .closing {
+        display: none;
+      }
+
+      @media screen and (min-width: 40em) { 
+        .page-navigation {
+          width: 16em;
+          position: absolute;
+          display: block;
+        }
+
+        [role="main"] {
+          margin-left: 16em;
+        }
+      }
+
+      [role="main"] {
+        background: #ededed;
+        height: 100%;
+      }
+    </style>
+
+    
+  </head>
+
+  <body{% if page.class %} class="{{ page.class }}"{% endif %}>
+
+    <header class="page-top">
+      <ul>
+        <li class="logo"><a href="/">SMTP2GO</a></li>
+        <li class="feature"><a href="#">Share your feedback on our new control panel</a></li>
+        <li class="support"><a href="#">Support ✚</a></li>
+        <li class="user">
+          <a href="#">Username</a>
+          <ul class="user-dropdown">
+            <li><a href="javascript:void(0);">Option</a></li>
+            <li><a href="javascript:void(0);">Option</a></li>
+            <li><a href="javascript:void(0);">Option</a></li>
+          </ul>
+        </li>
+      </ul>
+      <a class="open-nav" href="javascript:void(0);">&#9776;</a>
+    </header>
+
+    <nav class="page-navigation" role="navigation">
+      <li class="user"><a href="#">Account</a></li>
+      <li class="logout"><a href="#">Log Out</a></li>
+
+      <li class="dashboard is-selected"><a href="javascript:void(0);">Dashboard</a></li>
+      <li class="reports is-open">
+        <a class="reports-title" href="javascript:void(0);">Reports</a>
+        <ul>
+          <li class="reports-summary"><a href="javascript:void(0);">Summary</a></li>
+          <li class="reports-details"><a href="javascript:void(0);">Email Details</a></li>
+          <li class="reports-spam"><a href="javascript:void(0);">Spam Reports</a></li>
+          <li class="reports-spam"><a href="javascript:void(0);">Unsubscribes</a></li>
+          <li class="reports-bounces"><a href="javascript:void(0);">Bounces</a></li>
+          <li class="reports-charts"><a href="javascript:void(0);">Charts</a></li>
+        </ul>
+      </li>
+      <li class="settings">
+        <a class="settings-title" href="javascript:void(0);">Settings</a>
+        <ul>
+          <li class="settings-authentication"><a href="javascript:void(0);">Authentication</a></li>
+          <li class="settings-ip"><a href="javascript:void(0);">IP Authentication</a></li>
+          <li class="settings-address"><a href="javascript:void(0);">Address Authentication</a></li>
+          <li class="settings-restrict"><a href="javascript:void(0);">Restrict Senders</a></li>
+          <li class="settings-dkim"><a href="javascript:void(0);">Custom DKIM</a></li>
+          <li class="settings-callbacks"><a href="javascript:void(0);">Callbacks</a></li>
+          <li class="settings-unsubscribe"><a href="javascript:void(0);">Unsubscribe Options</a></li>
+          <li class="settings-footer"><a href="javascript:void(0);">Footer</a></li>
+          <li class="settings-display"><a href="javascript:void(0);">Display Settings</a></li>
+          <li class="settings-Audit"><a href="javascript:void(0);">Audit</a></li>
+        </ul>
+      </li>
+    </nav>
+
+    <div role="main">
+      {{ content }}
+    </div>
+
+    <footer class="closing group">
+      <ul class="closing-links">
+        <li class="copyright">&copy; 2015 SMTP2GO</li>
+        <li class="feedback"><a href="javascript:void(0);">Feedback</a></li>
+        <li class="privacy"><a href="javascript:void(0);">Privacy</a></li>
+        <li class="terms"><a href="javascript:void(0);">Terms</a></li>
+        <li class="chat"><a href="javascript:void(0);">Live Chat</a></li>
+        <li class="status"><a href="javascript:void(0);">Status</a></li>
+        <li class="twitter"><a href="javascript:void(0);">Twitter</a></li>
+      </ul>
+    </footer>
+
+    <script>
+      var cb = function() {
+      var l = document.createElement('link'); l.rel = 'stylesheet';
+      l.href = 'css/screen.css';
+      var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
+    </script>
+  
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/production.min.js"></script>
+  </body>
+</html>

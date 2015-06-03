@@ -1,0 +1,43 @@
+// Layout
+
+.button {
+  @extend %button;
+}
+
+.button.alt {
+  @extend %button-alt;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+.card {
+  background: white;
+  border-radius: $base-border-radius;
+  border: $base-border;
+  padding: 1em;
+}
+
+[role="main"] {
+  background: $light-gray;
+  padding: 1em;
+
+  @include media($medium-screen) {
+    margin-left: 30%;
+    min-height: 100%;
+  }
+
+  @include media($large-screen) {
+    margin-left: 16em;
+  }
+}
+
+.meta {
+  font-size: em(12);
+  text-transform: uppercase;
+  color: darken($light-gray, 40);
+  font-weight: 500;
+}

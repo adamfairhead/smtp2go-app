@@ -1,0 +1,164 @@
+// Navigation
+
+.page-navigation {
+  position: absolute;
+
+  @include media(max-width $medium-screen) {
+    @include transition(margin .25s ease-in-out);
+    width: 80%;
+    top: 0;
+    margin-left: -100%;
+  }
+
+  .user a,
+  .logout a {
+    display: block;
+    width: 50%;
+    float: left;
+    padding: .48em 1em;
+    text-align: center;
+    border-bottom: 1px solid darken($medium-gray, 5);
+  }
+
+  .user a {
+    border-right: 1px solid darken($medium-gray, 5);
+  }
+
+  .logout::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 40px;
+  }
+
+  @include media($medium-screen) {
+    width: 30%;
+    float: left;
+
+    .user,
+    .logout {
+      display: none;
+    }
+  }
+
+  @include media($large-screen) {
+    width: 16em;
+  }
+
+  li {
+    display: block;
+
+    a { 
+      display: block;
+      padding: .25em 1em;
+      color: #d0e0f9;
+
+      &:hover {
+        background: darken($medium-gray, 8);
+      }
+    }
+  }
+
+  .dashboard a,
+  .reports-title,
+  .settings-title {
+    @include transition(background .25s ease-in-out);
+    padding: .5em 1em;
+  }
+
+  .reports-title,
+  .settings-title { 
+    background: darken($medium-gray, 5);
+
+    &:after {
+      content: "▸";
+      float: right;
+      opacity: .4;
+    }
+  }
+
+  .reports-title:hover,
+  .settings-title:hover,
+  .is-open .reports-title,
+  .is-open .settings-title {
+      background: darken($medium-gray, 10);
+    }
+
+  .is-selected a {
+    background: $base-accent-color;
+    color: white;
+
+    &:hover {
+      background: $base-accent-color;
+    }
+  }
+
+  .is-open.is-selected-parent > a,
+  .is-selected-parent > a {
+    background: rgba($base-accent-color, .5);
+    color: white;
+  }
+
+  ul {
+    @include transition(all .25s ease-in-out);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    a {
+      padding-left: 2em;
+    }
+  }
+
+  .is-open {
+    & > a:after {
+      content: "▾";
+      float: right;
+    }
+
+    ul {
+      max-height: 400px;
+      opacity: 1;
+      padding: .5em 0;
+    }
+  }
+}
+
+.settings-address,
+.settings-footer {
+  border-bottom: 2px solid darken($medium-gray, 5);
+  margin-bottom: .5em;
+  padding-bottom: .5em;
+}
+
+body {
+  background: $medium-gray;
+
+  @include media(max-width $medium-screen) {
+    .page-top,
+    [role="main"],
+    .page-navigation {
+      @include transition(margin .25s ease-in-out);
+    }
+
+    .page-top,
+    [role="main"] {
+      position: relative;
+      width: 100%;
+    }
+
+    &.nav-visible {
+      width: 100%;
+      overflow-x: hidden;
+
+      .page-top,
+      [role="main"] {
+        margin-left: 80%;
+      }
+
+      .page-navigation {
+        margin-left: 0;
+      }
+    }
+  }
+}
